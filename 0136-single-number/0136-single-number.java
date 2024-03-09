@@ -1,17 +1,11 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            int count = 0;
-            for (int j = 0; j < nums.length; j++) {
-                if (i != j && nums[i] == nums[j]) {
-                    count++;
-                    break; // Break the loop if a matching pair is found
-                }
-            }
-            if (count == 0) {
-                return nums[i];
-            }
+        int result = 0;
+
+        for (int num : nums) {
+            result ^= num;
         }
-        return 0; // Default return if no single number is found
+
+        return result;
     }
 }
